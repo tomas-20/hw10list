@@ -25,3 +25,11 @@ struct pokemon *insert_front(struct pokemon *p, char *name, char *type) {
   output->next = p;
   return output;
 }
+struct pokemon *free_list(struct pokemon *p) {
+  if (p != NULL) {
+    struct pokemon *output = free_list(p->next);
+    free(p->next);
+    return output;
+  }
+  return p;
+}

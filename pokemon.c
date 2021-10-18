@@ -17,6 +17,11 @@ struct pokemon *catch_pokemon(char *name, char *type) {
 void print_list(struct pokemon *p) {
   if (p != NULL) {
     whos_that_pokemon(p);
-    who_are_those_pokemon(p->next);
+    print_list(p->next);
   }
+}
+struct pokemon *insert_front(struct pokemon *p, char *name, char *type) {
+  struct pokemon *output = catch_pokemon(name, type);
+  output->next = p;
+  return output;
 }

@@ -7,10 +7,10 @@ struct pokemon {
 };
 void whos_that_pokemon(struct pokemon *p) {
   if (p == NULL) {
-    printf("iiiiits nothing!\n");
+    printf("iiiiit's nothing!\n");
   }
   else {
-    printf("iiiiits %s, a %s-type pokemon!\n", p->name, p->type);
+    printf("iiiiit's %s, a %s-type pokemon!\n", p->name, p->type);
   }
 }
 struct pokemon *catch_pokemon(char *name, char *type) {

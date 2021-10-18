@@ -23,5 +23,6 @@ void print_list(struct pokemon *p) {
 struct pokemon *insert_front(struct pokemon *p, char *name, char *type) {
   struct pokemon *output = catch_pokemon(name, type);
   output->next = p;
+  printf("%p should be the same as %p\n", p, output->next);
   return output;
 }

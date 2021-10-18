@@ -6,7 +6,12 @@ struct pokemon {
   struct pokemon *next;
 };
 void whos_that_pokemon(struct pokemon *p) {
-  printf("iiiiits %s, a %s-type pokemon!\n", p->name, p->type);
+  if (p == NULL) {
+    printf("iiiiits nothing!\n");
+  }
+  else {
+    printf("iiiiits %s, a %s-type pokemon!\n", p->name, p->type);
+  }
 }
 struct pokemon *catch_pokemon(char *name, char *type) {
   struct pokemon *output = malloc(sizeof(struct pokemon));
@@ -28,7 +33,7 @@ struct pokemon *insert_front(struct pokemon *p, char *name, char *type) {
 struct pokemon *free_list(struct pokemon *p) {
   if (p != NULL) {
     struct pokemon *output = free_list(p->next);
-    free(p->next);
+    free(p);
     return output;
   }
   return p;

@@ -5,13 +5,18 @@ struct pokemon {
   char *type;
   struct pokemon *next;
 };
-void whos_that_pokemon(struct pokemon *p) {
+void print_pokemon(struct pokemon *p) {
   if (p == NULL) {
-    printf("iiiiit's nothing!\n");
+    printf("nothing");
   }
   else {
-    printf("iiiiit's %s, a %s-type pokemon!\n", p->name, p->type);
+    printf("%s, a %s-type pokemon", p->name, p->type);
   }
+}
+void whos_that_pokemon(struct pokemon *p) {
+  printf("iiiiit's ");
+  print_pokemon(p);
+  printf("!\n");
 }
 struct pokemon *catch_pokemon(char *name, char *type) {
   struct pokemon *output = malloc(sizeof(struct pokemon));

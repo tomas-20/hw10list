@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-char *POKETYPES[] = {"Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dark", "Dragon", "Steel", "Fairy"};
 struct pokemon {
   char *name;
   char *type;
-  struct pokemon next;
+  struct pokemon *next;
 };
 void whos_that_pokemon(struct pokemon *p) {
   printf("iiiiits %s, a %s-type pokemon!\n", p->name, p->type);
@@ -16,7 +14,9 @@ struct pokemon *catch_pokemon(char *name, char *type) {
   output->type = type;
   return output;
 }
-char *random_type() {
-  srand(time(NULL));
-  return POKETYPES[rand() % 18];
+void print_list(struct pokemon *p) {
+  if (p != NULL) {
+    whos_that_pokemon(p);
+    who_are_those_pokemon(p->next);
+  }
 }

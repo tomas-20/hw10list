@@ -9,7 +9,7 @@ void whos_that_pokemon(struct pokemon *p) {
   printf("iiiiits %s, a %s-type pokemon!\n", p->name, p->type);
 }
 struct pokemon *catch_pokemon(char *name, char *type) {
-  struct pokemon *output = malloc(16);
+  struct pokemon *output = malloc(sizeof(struct pokemon));
   output->name = name;
   output->type = type;
   return output;
@@ -23,6 +23,5 @@ void print_list(struct pokemon *p) {
 struct pokemon *insert_front(struct pokemon *p, char *name, char *type) {
   struct pokemon *output = catch_pokemon(name, type);
   output->next = p;
-  printf("%p should be the same as %p\n", p, output->next);
   return output;
 }

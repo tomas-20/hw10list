@@ -57,3 +57,15 @@ struct pokemon *free_list(struct pokemon *p) {
   }
   return p;
 }
+struct pokemon *remove_node(struct pokemon *p, char *type) {
+  if (p != NULL) {
+    if (p->type == type) {
+      struct pokemon *next = p->next;
+      free(p);
+      return next;
+    }
+    p->next = remove_node(p->next, type);
+    return p;
+  }
+  return p;
+}

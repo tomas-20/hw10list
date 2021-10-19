@@ -23,12 +23,6 @@ void whos_that_pokemon(struct pokemon *p) {
   print_pokemon(p);
   printf("!\n");
 }
-struct pokemon *catch_pokemon(char *name, char *type) {
-  struct pokemon *output = malloc(sizeof(struct pokemon));
-  output->name = name;
-  output->type = type;
-  return output;
-}
 void print_list_helper(struct pokemon *p) {
   if (p != NULL) {
     printf(" ");
@@ -43,6 +37,12 @@ void print_list(struct pokemon *p) {
     print_list_helper(p->next);
   }
   printf(")\n");
+}
+struct pokemon *catch_pokemon(char *name, char *type) {
+  struct pokemon *output = malloc(sizeof(struct pokemon));
+  output->name = name;
+  output->type = type;
+  return output;
 }
 struct pokemon *insert_front(struct pokemon *p, char *name, char *type) {
   struct pokemon *output = catch_pokemon(name, type);

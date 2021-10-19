@@ -3,7 +3,6 @@ struct pokemon {
   char *type;
   struct pokemon *next;
 };
-void print_pokemon(struct pokemon *);
 void whos_that_pokemon(struct pokemon *);
 struct pokemon *catch_pokemon(char *, char *);
 char *random_type();

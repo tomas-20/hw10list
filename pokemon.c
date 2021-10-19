@@ -10,7 +10,7 @@ void print_pokemon(struct pokemon *p) {
     printf("nothing");
   }
   else {
-    printf("%s: a %s-type pokemon", p->name, p->type);
+    printf("%s, a %s-type pokemon", p->name, p->type);
   }
 }
 void whos_that_pokemon(struct pokemon *p) {
@@ -24,10 +24,15 @@ struct pokemon *catch_pokemon(char *name, char *type) {
   output->type = type;
   return output;
 }
+void print_pokemon_with_quotes(struct pokemon *p) {
+  printf("\"");
+  print_pokemon(p);
+  printf("\"");
+}
 void print_list_helper(struct pokemon *p) {
   if (p != NULL) {
-    print_pokemon(p);
-    printf(", ");
+    print_pokemon_with_quotes(p);
+    printf(" ");
     print_list_helper(p->next);
   }
 }

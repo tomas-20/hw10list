@@ -24,11 +24,17 @@ struct pokemon *catch_pokemon(char *name, char *type) {
   output->type = type;
   return output;
 }
-void print_list(struct pokemon *p) {
+void print_list_helper(struct pokemon *p) {
   if (p != NULL) {
-    whos_that_pokemon(p);
-    print_list(p->next);
+    print_pokemon(p);
+    printf(" ");
+    print_list_helper(p->next);
   }
+}
+void print_list(struct pokemon *p) {
+  printf("( ");
+  print_list_helper(p);
+  printf(")\n");
 }
 struct pokemon *insert_front(struct pokemon *p, char *name, char *type) {
   struct pokemon *output = catch_pokemon(name, type);

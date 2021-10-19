@@ -31,14 +31,17 @@ void print_pokemon_with_quotes(struct pokemon *p) {
 }
 void print_list_helper(struct pokemon *p) {
   if (p != NULL) {
-    print_pokemon_with_quotes(p);
     printf(" ");
+    print_pokemon_with_quotes(p);
     print_list_helper(p->next);
   }
 }
 void print_list(struct pokemon *p) {
-  printf("( ");
-  print_list_helper(p);
+  printf("(");
+  if (p != NULL) {
+    print_pokemon_with_quotes(p);
+    print_list_helper(p->next);
+  }
   printf(")\n");
 }
 struct pokemon *insert_front(struct pokemon *p, char *name, char *type) {
